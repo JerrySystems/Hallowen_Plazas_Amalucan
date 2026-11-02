@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🎃 Ruta de Dulces de Halloween 🍬</title>
 
-  <!-- Tipografía Aesthetic / Gótica moderna -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Hoja de estilos del mapa (Leaflet OpenStreetMap) -->
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
@@ -26,7 +26,7 @@
       --font-title: 'Creepster', cursive;
       --font-body: 'Outfit', sans-serif;
 
-      /* Ajustes de estilo JerrySystems */
+
       --js-tamano-texto: 1.2rem;
       --js-tipo-letra: 'Outfit', sans-serif;
       --js-color-texto-general: #00FF00;
@@ -75,7 +75,7 @@
       50% { transform: translateY(-10vh) rotate(20deg); }
     }
 
-    /* Botón flotante de música */
+
     .btn-musica {
       position: fixed;
       bottom: 20px;
@@ -435,7 +435,7 @@
     }
   </style>
 
-  <!-- Protecciones activas -->
+
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
@@ -451,13 +451,13 @@
 </head>
 <body>
 
-  <!-- Audio de Halloween en bucle -->
+
   <audio id="musicaHalloween" loop preload="auto">
     <source src="jack.mp3" type="audio/mpeg">
     <source src="https://cdn.pixabay.com/download/audio/2022/10/14/audio_3821a71ef0.mp3?filename=halloween-spooky-124192.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Botón flotante para encender/apagar la música -->
+
   <button id="btnMusica" class="btn-musica" aria-label="Música de Halloween">
     <span id="iconoMusica">🎃</span> <span id="textoMusica">Música</span>
   </button>
@@ -470,7 +470,7 @@
   </div>
 
   <header>
-    <h1>Plazas Amalucan<br>Dulce o Truco 🎃</h1>
+    <h1>Plazas Amalucan<br>Dulce o Truco 🎃 2026<br> nos vemos el próximo año.</h1>
     <p>Toca cualquier tarjeta para ver la fachada en grande, ubicar la casa en el mapa y generar la ruta directa desde donde estés.</p>
     <div class="badge-counter" id="totalCasasBadge">Cargando puntos...</div>
   </header>
@@ -509,10 +509,10 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Lógica protegida -->
+
   <script>
     (function(){
-      // Control de audio
+
       const audio = document.getElementById('musicaHalloween');
       const btnMusica = document.getElementById('btnMusica');
       const iconoMusica = document.getElementById('iconoMusica');
@@ -538,7 +538,7 @@
 
       btnMusica.addEventListener('click', alternarMusica);
 
-      // Reproducir audio al primer toque en la pantalla si aún no ha sonado
+
       document.body.addEventListener('click', function primerToque() {
         if (!audioIniciado) {
           audio.play().then(() => {
@@ -550,8 +550,6 @@
         }
       }, { once: true });
 
-      // Base de datos de 16 casas codificada en memoria
-      const dataEncoded = "%5B%7B%22id%22%3A1%2C%22direccion%22%3A%22Plazuela%20de%20los%20Sapos%20%231410%20en%20el%20Edificio%22%2C%22referencia%22%3A%22Daremos%20Dulces%20Sabado%20y%20Domingo.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Sabado%20y%20Domingo%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DOxU4tqceV8haSAGqLuLp-Q%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D87.66234%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.042718841567932%2C%22lng%22%3A-98.14194773333527%7D%2C%7B%22id%22%3A2%2C%22direccion%22%3A%22Plazuela%20de%20los%20Sapos%20%231422%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DZQnwm5UczJP70IgPiGR7tg%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D99.01609%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.043130499293763%2C%22lng%22%3A-98.14191396031606%7D%2C%7B%22id%22%3A3%2C%22direccion%22%3A%22Plazuela%20San%20Jose%20%231612%22%2C%22referencia%22%3A%22Porton%20Cafe%20con%20dos%20pilares%20al%20frente%20(inflable%20calabazas%20naranjas)%20Viernes%2030%20de%2019%3A00%20a%2021%3A00%20hrs.%20y%20Sabado%2031%20de%2018%3A00%20a%2021%3A00%20hrs.%22%2C%22notas%22%3A%22%F0%9F%8D%AB%20iernes%2030%20de%2019%3A00%20a%2021%3A00%20hrs.%20y%20Sabado%2031%20de%2018%3A00%20a%2021%3A00%20hrs.%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DEorM0nCn18m-7VSYlBOwLw%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D97.56004%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.045267349982918%2C%22lng%22%3A-98.14251509358408%7D%2C%7B%22id%22%3A4%2C%22direccion%22%3A%22Plazuela%20San%20Jose%20%231418%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%ADApartir%20de%20las%2020%3A00%20hrs.%20%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DeOUhbIgGsZ9KkBqVbJ9zZw%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D73.670784%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04294385783882%2C%22lng%22%3A-98.14251073147963%7D%2C%7B%22id%22%3A5%2C%22direccion%22%3A%22Plazuela%20San%20Francisco%20%231641%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%ADViernes%20y%20Sabado%20%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DzFkgGjqmAnXwBVkDQg8wVg%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D301.13553%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04626904008694%2C%22lng%22%3A-98.14320482015071%7D%2C%7B%22id%22%3A6%2C%22direccion%22%3A%22Plazuela%20del%20Refugio%20%231441%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Sabado%2031%20de%2019%3A00%20a%2021%3A30%20hrs.%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DWCfQ8_x8b75ZP7zwihbEzA%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D265.38934%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.043949431371587%2C%22lng%22%3A-98.14374994682566%7D%2C%7B%22id%22%3A7%2C%22direccion%22%3A%22Plazuela%20de%20la%20Granja%20%231443%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Sabado%2031%20de%2019%3A00%20a%2021%3A30%20hrs.%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DIsEb7RQ5rP_hsPKbcN_6bg%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D280.11777%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04436884735524%2C%22lng%22%3A-98.14423313333515%7D%2C%7B%22id%22%3A8%2C%22direccion%22%3A%22Plazuela%20del%20Carmen%20%231414%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AC%20Horario%20de%2018%3A30%20a%2020%3A00%20hrs.%22%2C%22foto%22%3A%22https%3A%2F%2Fdvcphoto.com%2Fno-hay-foto-1%22%2C%22lat%22%3A19.042932208103593%2C%22lng%22%3A-98.14450287566217%7D%2C%7B%22id%22%3A9%2C%22direccion%22%3A%22Plazuela%20del%20Carmen%20%231616%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8E%83%20Horario%20de%2018%3A00%20a%2021%3A00%20hrs.%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D40EFYKUcgPST_riKXMubZg%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D70.781136%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.045444554628215%2C%22lng%22%3A-98.14447414682563%7D%2C%7B%22id%22%3A10%2C%22direccion%22%3A%22Plazuela%20del%20Boliche%20%231424%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DD5OcuvCdT4CTkagKfTOQAA%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D85.94136%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04358839867799%2C%22lng%22%3A-98.14554929100828%7D%2C%7B%22id%22%3A11%2C%22direccion%22%3A%22Verduleria%20Tomates%20y%20Reparacion%20de%20Celulares%22%2C%22referencia%22%3A%22Avenida%20Educadores%20%235821%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%20de%2018%3A00%20a%2020%3A00%20hrs%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3De80A1ePPGqAxhbNH1GBVAg%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D165.31606%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04465154687137%2C%22lng%22%3A-98.14533159100827%7D%2C%7B%22id%22%3A12%2C%22direccion%22%3A%22Plazuela%20del%20Alto%20%231644-1%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DMhOLMMswO39HWaxi42KtCA%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D83.926796%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.046614555723938%2C%22lng%22%3A-98.14653285281152%7D%2C%7B%22id%22%3A13%2C%22direccion%22%3A%22Plazuela%20del%20Alto%20%231434%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DcroSz0mLS4xo3ZoZuvj25w%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D83.55474%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04394887326106%2C%22lng%22%3A-98.14644250449868%7D%2C%7B%22id%22%3A14%2C%22direccion%22%3A%22Plazuela%20del%20Alto%20%231662%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DnTilqLoQIUx0zJL3oHGh3g%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D83.47481%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.04716395966762%2C%22lng%22%3A-98.14641877751774%7D%2C%7B%22id%22%3A15%2C%22direccion%22%3A%22Dulceria%20Dulces%20Placeres%22%2C%22referencia%22%3A%22Av%20de%20las%20Torres%201601%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3Dq_ZLuQUt2bBYZmYsAn-jZA%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D8.74315%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.044693823816107%2C%22lng%22%3A-98.14705142997119%7D%2C%7B%22id%22%3A16%2C%22direccion%22%3A%22Av%20de%20las%20Torres%201402-A%22%2C%22referencia%22%3A%22Daremos%20Dulces.%22%2C%22notas%22%3A%22%F0%9F%8D%AD%20Viernes%20y%20Sabado%20%22%2C%22foto%22%3A%22https%3A%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DoRNHQtc1ijYeTKskqQKyQA%26cb_client%3Dsearch.gws-prod.grass%26w%3D408%26h%3D240%26yaw%3D129.96333%26pitch%3D0%26thumbfov%3D100%22%2C%22lat%22%3A19.042434475020272%2C%22lng%22%3A-98.1470038891527%7D%5D";
       const casas = JSON.parse(decodeURIComponent(dataEncoded));
 
       const gridCasas = document.getElementById('gridCasas');
